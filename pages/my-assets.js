@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { nftmarketaddress, nftaddress } from "../config";
 
-import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
+import Market from "../artifacts/contracts/NFTMarket.sol/NFTMarket.json";
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
 
 export default function MyAssets() {
@@ -61,7 +61,13 @@ export default function MyAssets() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {nfts.map((nft, i) => (
             <div key={i} className="border shadow rounded-xl overflow-hidden">
-              <Image alt="rounded nft" src={nft.image} className="rounded" />
+              <Image
+                alt="nft"
+                className="rounded"
+                width={400}
+                height={400}
+                src={nft.image}
+              />
               <div className="p-4 bg-black">
                 <p className="text-2xl font-bold text-white">
                   Price - {nft.price} Eth

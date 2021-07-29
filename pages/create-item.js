@@ -9,8 +9,8 @@ const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
 import { nftaddress, nftmarketaddress } from "../config";
 
+import Market from "../artifacts/contracts/NFTMarket.sol/NFTMarket.json";
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
-import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null);
@@ -33,7 +33,7 @@ export default function CreateItem() {
       console.log("Error uploading file: ", error);
     }
   }
-  
+
   async function createItem() {
     const { name, description, price } = formInput;
     if (!name || !description || !price || !fileUrl) return;
@@ -109,7 +109,8 @@ export default function CreateItem() {
           <Image
             alt="fileurl"
             className="rounded mt-4"
-            width="350"
+            width={400}
+            height={400}
             src={fileUrl}
           />
         )}
